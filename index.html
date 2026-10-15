@@ -626,23 +626,58 @@
       padding-top: 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
+    }
+    .btn-copy-ai {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-copy-ai:hover {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .btn-copy-ai.copied {
+      background: rgba(46, 164, 79, 0.2) !important;
+      border-color: #2ea44f !important;
+      color: #2ea44f !important;
+    }
+    [data-theme="light"] .btn-copy-ai {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    [data-theme="light"] .btn-copy-ai:hover {
+      background: rgba(184, 134, 11, 0.12);
     }
     .btn-detail {
-      width: 100%;
-      padding: 9px 14px;
+      flex: 1.2;
+      padding: 8px 10px;
       border-radius: 8px;
       background: var(--badge-bg);
       border: 1px solid var(--badge-border);
       color: var(--accent);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .btn-detail:hover {
       background: var(--accent);
@@ -807,7 +842,19 @@
     .modal-header-meta {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 10px;
+      flex-wrap: wrap;
+    }
+    .modal-header-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-copy-btn {
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      border-radius: 20px;
     }
     .modal-item-id {
       font-family: var(--font-en-serif);
@@ -891,6 +938,113 @@
         font-size: 1.7rem;
       }
     }
+
+    /* GitHub Button */
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      padding: 0 12px;
+      height: 38px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-github:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    [data-theme="light"] .btn-github {
+      background: rgba(0, 0, 0, 0.04);
+    }
+    [data-theme="light"] .btn-github:hover {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Site Footer */
+    .site-footer {
+      border-top: 1px solid var(--surface-border);
+      margin-top: 60px;
+      padding: 36px 24px;
+      background: rgba(12, 14, 20, 0.75);
+    }
+    [data-theme="light"] .site-footer {
+      background: rgba(240, 242, 248, 0.75);
+    }
+    .footer-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-left p {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .footer-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .footer-license {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .footer-license a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer-license a:hover {
+      text-decoration: underline;
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: rgba(20, 22, 32, 0.96);
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.28s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.28s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-notice.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    [data-theme="light"] .toast-notice {
+      background: rgba(255, 255, 255, 0.98);
+      color: #1a1c23;
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
   </style>
 </head>
 <body>
@@ -919,6 +1073,12 @@
           <input type="text" id="searchInput" placeholder="搜索品类、中文/英文名称、触感、场景...">
           <button class="clear-search" id="clearSearch">✕</button>
         </div>
+        <a href="https://github.com/meomeo-dev/hosiery-taxonomy-gallery" target="_blank" rel="noopener noreferrer" class="btn-github" title="访问 GitHub 数据集仓库">
+          <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
         <button class="btn-icon" id="themeToggle" title="切换暗黑/明亮模式">🌓</button>
       </div>
     </div>
@@ -980,6 +1140,25 @@
     </div>
   </main>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p><strong>常见穿搭丝袜类型中英文全景图鉴与画廊</strong></p>
+        <p class="footer-sub">The Complete Visual Encyclopedia of Hosiery & Tights</p>
+        <p class="footer-license">分类表与元数据遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议 | 前端代码遵循 MIT 协议</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/meomeo-dev/hosiery-taxonomy-gallery" target="_blank" rel="noopener noreferrer" class="btn-github" title="访问 GitHub 数据集仓库">
+          <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>GitHub 仓库源码与数据集</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
   <!-- Detail / Lightbox Modal -->
   <div class="modal-backdrop" id="modalBackdrop">
     <div class="modal-container" id="modalContainer">
@@ -1002,8 +1181,13 @@
         <!-- Info Column -->
         <div class="modal-info-col">
           <div class="modal-header-meta">
-            <span class="modal-item-id" id="modalId">#01</span>
-            <span class="modal-category-tag" id="modalCategory">分类名称</span>
+            <div class="modal-header-meta-left">
+              <span class="modal-item-id" id="modalId">#01</span>
+              <span class="modal-category-tag" id="modalCategory">分类名称</span>
+            </div>
+            <button class="btn-copy-ai modal-copy-btn" id="modalCopyBtn" title="复制完整详情档案给 AI">
+              <span>📋</span> <span>复制给 AI</span>
+            </button>
           </div>
 
           <div>
@@ -1037,6 +1221,89 @@
   <script>
     // Embedded Data
     const hosieryData = [{"id": 1, "id_str": "01", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Ultra-sheer tights / Invisible pantyhose / Gossamer tights", "zh_name": "极薄丝袜 / 隐形透肤丝袜 / 空气丝袜 / 蝉翼袜", "primary_zh": "极薄丝袜", "aliases": ["隐形透肤丝袜", "空气丝袜", "蝉翼袜"], "spec": "<10D (常见 5D, 8D, 9D)；单丝线径极其微细，9000米纱线重量小于10克", "visual": "极高透光度（90%-98%）。上腿近乎隐形，如同覆上一层微弱柔焦滤镜，轻微修饰毛孔与极细干纹，无遮瑕力与线条收拢塑形感，真实还原裸肌线条。", "tactile": "触感薄如蝉翼，指尖几乎感知不到织物厚度；极其轻柔滑爽，摩擦阻力趋近于零；弹力轻柔无压迫拘束感，耐刮抗勾能力极弱，指甲倒刺易勾破。", "styling": "夏季正式宴会、晚宴红毯、婚礼伴娘、严格外交/王室公务禁裸腿正装礼仪；搭配高定夏日礼服、真丝吊带裙、露趾或细带尖头高跟鞋。", "hero_img": "./01_基础厚度与透肤度/01_极薄隐形丝袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/01_极薄隐形丝袜_穿搭场景图.jpg"}, {"id": 2, "id_str": "02", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Sheer pantyhose / Classic sheer tights / Transparent stockings", "zh_name": "标准透肤丝袜 / 经典透肉丝袜 / 薄款连裤袜 / 经典黑丝 / 经典肉丝", "primary_zh": "标准透肤丝袜", "aliases": ["经典透肉丝袜", "薄款连裤袜", "经典黑丝", "经典肉丝"], "spec": "10D - 20D (常见 12D, 15D, 20D)；全球销量最大、最核心的基础款丝袜规格", "visual": "通透清澈（透光率70%-85%），骨骼肌理清晰显现，自带均匀磨皮效果；黑色款在受拉伸处呈现由深至浅的细腻渐变光影，具备极佳的立体修容显瘦收拢感。", "tactile": "手感丝滑轻薄，有清晰柔顺的丝织物滑移感；薄厚适中，手感微凉，具备顺畅的双向拉伸与贴合回弹性，与外穿裙摆摩擦小，不易卡裙。", "styling": "商务正装职场（西装套裙、铅笔裙）、都市通勤、浪漫约会、鸡尾酒酒会；经典法式优雅风；搭配尖头高跟鞋、猫跟单鞋或复古玛丽珍鞋。", "hero_img": "./01_基础厚度与透肤度/02_标准透肤丝袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/02_标准透肤丝袜_穿搭场景图.jpg"}, {"id": 3, "id_str": "03", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Semi-sheer tights / Semi-opaque tights / Transitional tights", "zh_name": "半透肉丝袜 / 半不透明连裤袜 / 微透微遮瑕丝袜 / 春秋薄透裤袜", "primary_zh": "半透肉丝袜", "aliases": ["半不透明连裤袜", "微透微遮瑕丝袜", "春秋薄透裤袜"], "spec": "30D - 50D (常见 30D, 40D, 50D)；春秋过渡季经典规格，多采用超细旦锦纶与微纤维复合", "visual": "雾面半透半遮（透光率30%-60%），静态直立深沉沉稳，屈膝拉伸时隐约透出骨节肤色；遮瑕力极强，能有效隐匿疤痕暗沉与青筋，两翼深黑中线透光，显瘦收拢效果居首位。", "tactile": "柔韧扎实，采用超细纤维时带有如桃皮绒般的细腻粉糯感；滑爽适中不易滑脱，抗勾丝耐磨损性能高，对腿部松弛肌肉有轻微包裹支撑力。", "styling": "春秋过渡季通勤、时装周街拍、暗黑暗调风格、高级名媛风；搭配中长短裙、皮短裤、风衣、大廓形西装、切尔西短靴或马丁靴。", "hero_img": "./01_基础厚度与透肤度/03_半透肉丝袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/03_半透肉丝袜_穿搭场景图.jpg"}, {"id": 4, "id_str": "04", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Opaque tights / Solid opaque tights / Blackout tights", "zh_name": "不透肉连裤袜 / 纯色不透明厚丝袜 / 哑光天鹅绒打底袜", "primary_zh": "不透肉连裤袜", "aliases": ["纯色不透明厚丝袜", "哑光天鹅绒打底袜"], "spec": "60D - 90D (常见 60D, 70D, 80D)；单层密织高针数无抓绒结构", "visual": "基本不透肉（透光率低于10%-15%），仅深蹲屈膝时显露极微弱骨节轮廓；呈现饱和均一的纯色色块，全哑光质地强效吸光，线条规整收敛，腿部杂色瑕疵全屏蔽。", "tactile": "手感温润厚实，带经典天鹅绒（Velvet-feel）亲肤触感，不显冰凉，自带微温感；高针密织弹力纤维带来显著包裹收拢感，紧致贴身不起皱，不易勾丝。", "styling": "深秋与初冬日常、英伦复古学院风（Preppy）、商务职业保暖；搭配粗花呢短裙、针织连衣裙、中长款羊毛呢大衣、切尔西短靴或骑士靴。", "hero_img": "./01_基础厚度与透肤度/04_不透肉连裤袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/04_不透肉连裤袜_穿搭场景图.jpg"}, {"id": 5, "id_str": "05", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Ultra-opaque tights / Heavyweight knitted tights / Sweater tights", "zh_name": "超厚不透肉连裤袜 / 密织保暖袜裤 / 冬季高密针织连裤袜 / 紧身厚裤袜", "primary_zh": "超厚不透肉连裤袜", "aliases": ["密织保暖袜裤", "冬季高密针织连裤袜", "紧身厚裤袜"], "spec": "100D - 200D+ (常见 100D, 110D, 120D, 140D, 180D)；依靠高支高密纱线纯织造而成，无内里抓绒", "visual": "100%全遮蔽零透肉。色泽浓郁如紧身裤（Leggings），纯净极简色块分割感极强，腿部几何线条利落干练，完全消除任何透肉光晕与膨胀臃肿感。", "tactile": "纯织造结构紧密扎实、柔厚温润；高织密带来紧致的微压力收腹提臀与束腿感，弯曲时不易产生厚重死褶，耐磨抗起球寿命极长。", "styling": "寒冬极简搭配、商务精英通勤、极寒地区长裙内搭、北欧冷淡风；搭配厚羊绒大衣、阔版西装、厚底乐福鞋、烟管靴或过膝长靴。", "hero_img": "./01_基础厚度与透肤度/05_超厚不透肉连裤袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/05_超厚不透肉连裤袜_穿搭场景图.jpg"}, {"id": 6, "id_str": "06", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Fleece-lined tights / Thermal tights / Brushed fleece pantyhose", "zh_name": "加绒保暖裤袜 / 加厚一体打底裤袜 / 摇粒绒发热保暖袜裤", "primary_zh": "加绒保暖裤袜", "aliases": ["加厚一体打底裤袜", "摇粒绒发热保暖袜裤"], "spec": "克重标称：150g - 350g+ (折合纱线重量 300D - 1200D+)；内层复合抓绒或发热德绒", "visual": "完全不透明，外观呈厚实紧身裤感；若外层高密压实且剪裁得当可保持平整服帖，脚踝与膝窝处受厚度影响在屈膝时可能产生微小折痕，视觉体量感较单层织物偏大。", "tactile": "内层为亲肤软糯的拉绒/抓绒（Brushed Fleece），触肤即暖；外层为抗风防刮的高密锦氨层；手感厚实有分量，弹力坚韧紧绷，抗寒风锁温效果显著。", "styling": "零下严寒天气、北方户外出行、雪地度假实用防寒；搭配羽绒服、厚派克服、羊羔毛大衣、雪地靴或重装厚底马丁靴。", "hero_img": "./01_基础厚度与透肤度/06_加绒保暖裤袜_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/06_加绒保暖裤袜_穿搭场景图.jpg"}, {"id": 7, "id_str": "07", "category_full": "基础厚度与透肤度 (Sheer & Opacity)", "category": "基础厚度与透肤度", "folder": "01_基础厚度与透肤度", "en_name": "Fake-translucent fleece tights / Faux sheer warm tights / 'Bare-leg artifact'", "zh_name": "假透肉加绒裤袜 / 光腿神器 / 仿肤防寒打底裤 / 双层假透肉裤袜", "primary_zh": "假透肉加绒裤袜", "aliases": ["光腿神器", "仿肤防寒打底裤", "双层假透肉裤袜"], "spec": "克重标称：80g-320g+；分为外层薄丝内层肉绒的双层款与一体成型高针复合织造款", "visual": "光学错视（Optical illusion）：远观呈现 15-30D 薄透黑丝或光腿裸肤质感，实则内部厚绒保温；高品质款具有骨骼起伏光影感，避免假白发灰的假肢感；劣质款易产生膝弯大肠折痕。", "tactile": "外层光滑致密防刮，内层短绒丰盈软糯，触手即暖；因双层复合，穿脱阻力较大需分段均匀提拉，关节处回弹贴合，抗风保温性极佳。", "styling": "冬季既要防寒又要轻盈露腿感的核心单品；JK制服穿搭、韩系纯欲风、小香风千金裙装；搭配长筒骑士靴、烟管靴或乐福鞋配堆堆袜。", "hero_img": "./01_基础厚度与透肤度/07_假透肉光腿神器_商品主图.jpg", "lifestyle_img": "./01_基础厚度与透肤度/07_假透肉光腿神器_穿搭场景图.jpg"}, {"id": 8, "id_str": "08", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Pantyhose / Tights / Sheer-to-waist tights", "zh_name": "连裤袜 / 丝袜连裤袜 / 紧身裤袜", "primary_zh": "连裤袜", "aliases": ["丝袜连裤袜", "紧身裤袜"], "spec": "一体成型贯通式结构，从腰部经臀腹部、腿部一直延展封闭至足尖；配加宽弹力腰带与纯棉底裆", "visual": "绝佳纵向连贯性，自腰线至脚尖无任何横向线条切断，形成流线型纯净光影曲面，最大限度拉长下半身纵向视觉比例，均匀修饰毛孔瑕疵。", "tactile": "全身360度紧密包裹，腰腹部有均匀环状微压，足尖被弹性织物自然聚拢包裹；行走活动时不易位移掉档，安全感最强。", "styling": "严肃职场商务（西装套裙、铅笔裙）、国事政商外事规范礼仪、晚宴礼服配小黑裙；秋冬保暖大衣叠穿。", "hero_img": "./02_版型结构与长度剪裁/08_连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/08_连裤袜_穿搭场景图.jpg"}, {"id": 9, "id_str": "09", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Thigh-high stockings / Traditional stockings / Fully fashioned stockings", "zh_name": "及大腿长筒袜 / 大腿袜 / 传统平口长筒丝袜", "primary_zh": "及大腿长筒袜", "aliases": ["大腿袜", "传统平口长筒丝袜"], "spec": "独立双筒剪裁，袜筒延伸至大腿中上部；袜口为双层平织或罗纹加固边，内部完全无硅胶，常保留复古后缝线与加固跟", "visual": "在大腿中上部切出一道锐利分界线，短裙下摆与袜口之间露出真实裸肤，形成视觉张力极强的“绝对领域”；配合吊带呈现几何力学交织美感。", "tactile": "腰腹与会阴部完全解放无束缚，通风透气；因无自持胶条，自身无法抵抗行走肌肉收缩，单独穿必然下滑卷边，必须依赖吊袜带或袜胶固定。", "styling": "美式/法式复古美学（1940-50s Pin-up 招贴画风、Vintage 复古派对）、闺房私密内衣造型、复古歌舞剧演出。", "hero_img": "./02_版型结构与长度剪裁/09_及大腿长筒袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/09_及大腿长筒袜_穿搭场景图.jpg"}, {"id": 10, "id_str": "10", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Hold-ups / Stay-ups / Silicone-top thigh-highs", "zh_name": "硅胶防滑自立长筒袜 / 自立袜 / 蕾丝边防滑大腿袜", "primary_zh": "硅胶防滑自立长筒袜", "aliases": ["自立袜", "蕾丝边防滑大腿袜"], "spec": "独立双筒及大腿版型；袜口配 5-10cm 宽蕾丝装饰带，内侧复合涂覆 1-3 条医用级亲肤防滑硅胶条", "visual": "兼具长筒袜的性感分界与精美蕾丝细节，步伐摆动间若隐若现；若尺码偏小或大腿较丰满，边缘易勒出轻微肉痕凹陷（Muffin-top 效应）。", "tactile": "腰腹零束缚干爽透气；大腿上部有清晰的环抱收紧感与硅胶阻尼贴肤感；长时间行走或出汗较多时需注意防滑移。", "styling": "超贴身晚礼服、真丝鱼尾裙（彻底消除腰臀内裤痕迹 VPL）；夏季精致都市通勤、晚宴酒会、浪漫约会。", "hero_img": "./02_版型结构与长度剪裁/10_硅胶防滑自立长筒袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/10_硅胶防滑自立长筒袜_穿搭场景图.jpg"}, {"id": 11, "id_str": "11", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Suspender stockings / Garter stockings", "zh_name": "吊带长筒袜 / 吊袜带专用长袜", "primary_zh": "吊带长筒袜", "aliases": ["吊袜带专用长袜"], "spec": "大腿长袜，袜口顶端为双层平织高强耐磨加固边，内部绝无硅胶，专为承受吊袜带鸭嘴夹纵向提拉设计", "visual": "腰际垂下的 4-8 条吊带与大腿袜口在大腿根部构成鲜明几何建筑线条，垂直走向引导视线向上流动，兼具端庄古典与前卫张力。", "tactile": "因维持恒定向上纵向拉力，袜身在腿上时刻保持高张力紧绷平整，膝踝无松弛皱褶；腰部需承受吊带腰封收紧感，裆部完全透气。", "styling": "正统 Vintage 复古风尚、新娘婚礼内衣（Bridal Lingerie）、暗黑哥特与古典朋克秀场“内衣外穿”风格。", "hero_img": "./02_版型结构与长度剪裁/11_吊带长筒袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/11_吊带长筒袜_穿搭场景图.jpg"}, {"id": 12, "id_str": "12", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Knee-high stockings / Knee-highs / Trouser socks / Pop socks", "zh_name": "及膝丝袜 / 中筒丝袜 / 膝下袜 / 短长统袜", "primary_zh": "及膝丝袜", "aliases": ["中筒丝袜", "膝下袜", "短长统袜"], "spec": "袜筒长度精确截止于髌骨下方 2-3cm 处；袜口配 2-4cm 软弹力平纹织带，脚跟脚尖设耐磨加固", "visual": "在膝下形成水平截断线，外露单穿易截断小腿纵向长度并突出小腿肚横向轮廓；若配合长裤穿着，仅在坐下裤腿上提时露出，利落干练。", "tactile": "穿脱极便捷，腰臀与大腿完全自由无感；袜口松紧适中，过紧易在小腿上沿勒出压痕，过松易滑落堆积于踝部。", "styling": "职场长裤通勤必备（搭配九分西裤、烟管裤，避免坐下露肉失礼并防磨脚）；英伦学院风、复古 JK 制服穿搭。", "hero_img": "./02_版型结构与长度剪裁/12_及膝丝袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/12_及膝丝袜_穿搭场景图.jpg"}, {"id": 13, "id_str": "13", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Ankle tights / Sheer ankle socks / Sheer footsies", "zh_name": "丝袜短袜 / 踝部丝袜 / 船袜丝袜 / 透明短袜", "primary_zh": "丝袜短袜", "aliases": ["踝部丝袜", "船袜丝袜", "透明短袜"], "spec": "袜身极短，高度仅覆盖外踝骨或隐藏于鞋口内；10-30D 超薄织造，袜底常复合棉底防滑吸汗", "visual": "截断点位于腿部最细的脚踝，不破坏整腿纵向视觉；搭配波点、字母或蕾丝细节，成为鞋袜间的精致微配饰，将视线聚焦于骨感脚踝。", "tactile": "足部包裹轻薄如蝉翼，透气散热快；化纤薄袜与皮鞋内里摩擦力低，优质款底面加棉可防滑缓冲。", "styling": "时装周街拍混搭、法式轻复古（配猫跟鞋、玛丽珍鞋、尖头单鞋）；搭配九分裤、卷边牛仔裤与小白鞋日常轻便出街。", "hero_img": "./02_版型结构与长度剪裁/13_丝袜短袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/13_丝袜短袜_穿搭场景图.jpg"}, {"id": 14, "id_str": "14", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Footless tights / Ankle-length tights / Capri tights", "zh_name": "九分连裤袜 / 无脚连裤袜 / 踩踝裤袜", "primary_zh": "九分连裤袜", "aliases": ["无脚连裤袜", "踩踝裤袜"], "spec": "连裤袜版型但在踝关节骨处平齐截断，足部完全裸露；切口采用精密四针六线或无痕收边防卷边抽丝", "visual": "终结于脚踝，露出光洁足背与脚趾；若搭配浅口单鞋有横向截断感，若搭配短靴掩盖截断处则视觉与连裤袜一致。", "tactile": "彻底杜绝传统连裤袜脚尖被趾甲顶破洞的困扰，脚趾与足底拥有100%透气伸展自由，鞋内不打滑，腰臀穿着感与普通连裤袜无异。", "styling": "现代舞与瑜伽练功（需足底直接抓地）；搭配露趾凉鞋、松糕厚底鞋；Y2K千禧复古风叠穿牛仔短裙与针织袜套。", "hero_img": "./02_版型结构与长度剪裁/14_九分连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/14_九分连裤袜_穿搭场景图.jpg"}, {"id": 15, "id_str": "15", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Stirrup tights / Stirrup leggings", "zh_name": "踩脚丝袜 / 踏脚丝袜 / 踩脚裤袜", "primary_zh": "踩脚丝袜", "aliases": ["踏脚丝袜", "踩脚裤袜"], "spec": "躯干与腿身等同连裤袜，足底镂空设计：脚趾与脚跟完全裸露，足弓中心保留宽 2.5-4cm 高弹扁平织带套扣脚心", "visual": "足弓织带对裤管施加向下的物理锚定拉力，杜绝脚踝周围褶皱鼓包；露出后跟与脚背呈现利落骨感轮廓，视觉引申至足心，极显修长。", "tactile": "裤腿受力稳定不向上窜位堆积，足尖无压迫；若身材超高或织带弹性过硬，足底受力过紧行走时足弓有微弱勒拽异物感。", "styling": "专业芭蕾舞、花样滑冰、竞技健美操训练；80年代健美运动复古风；秀场前卫穿法将踩脚带套在尖头高跟鞋底外侧。", "hero_img": "./02_版型结构与长度剪裁/15_踩脚丝袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/15_踩脚丝袜_穿搭场景图.jpg"}, {"id": 16, "id_str": "16", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Open-toe tights / Toeless tights / Peep-toe tights", "zh_name": "露趾丝袜 / 鱼嘴丝袜 / 露指连裤袜 / 夹趾连裤袜", "primary_zh": "露趾丝袜", "aliases": ["鱼嘴丝袜", "露指连裤袜", "夹趾连裤袜"], "spec": "袜身覆盖整腿至前掌跖骨区，趾端开孔；分为排趾开口式与大拇趾/二趾间带细隔带的夹趾分指式", "visual": "整条腿享受丝袜的均匀磨皮与光影修饰，同时保留自然美甲与脚趾原生肤色；彻底消除穿鱼嘴鞋或凉鞋时露出常规丝袜脚尖加固缝线的视觉破绽。", "tactile": "脚趾完全暴露于空气中，通风凉爽无汗液积聚，杜绝了大脚趾顶端甲床受压酸痛感，前掌锁边平滑柔软。", "styling": "盛夏高端宴会、草坪婚礼、晚宴酒会；搭配一字带细跟凉鞋、鱼嘴高跟鞋或穆勒鞋；需遵循正装穿袜礼仪但搭配夏日露趾鞋的正式场合。", "hero_img": "./02_版型结构与长度剪裁/16_露趾丝袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/16_露趾丝袜_穿搭场景图.jpg"}, {"id": 17, "id_str": "17", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Control-top tights / Shaping tights / Support hosiery", "zh_name": "收腹塑形高腰连裤袜 / 提臀平腹丝袜 / 压力微塑连裤袜", "primary_zh": "收腹塑形高腰连裤袜", "aliases": ["提臀平腹丝袜", "压力微塑连裤袜"], "spec": "腰腹搭载 6-10cm 加宽防卷双层高弹腰封，腹部织入高旦氨纶收缩网格，臀底设 3D 托臀弧形提拉织带，腿部采用梯度微压", "visual": "重构中段轮廓曲线，强力收平下腹微凸，收紧腰胯侧赘肉并托高臀位线；抹除普通细橡筋勒出的腰部分层肉圈，塑造平滑沙漏身材，拔高腰位。", "tactile": "腰腹与骨盆有清晰坚实的环形紧束与支撑感，穿脱需分段提拉；为腰椎与盆底提供轻量塑身衣般的稳定支撑感，防掉档性能极强。", "styling": "贴身针织弹力裙（Bodycon Dress）、真丝吊带裙、包臀铅笔裙；红毯走秀、重要商务谈判等必须确保 360 度体态紧致无瑕的场合。", "hero_img": "./02_版型结构与长度剪裁/17_收腹塑形连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/17_收腹塑形连裤袜_穿搭场景图.jpg"}, {"id": 18, "id_str": "18", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Over-the-knee stockings / OTK socks / Thigh-grazing stockings", "zh_name": "过膝长筒袜 / 过膝丝袜 / 高筒过膝袜", "primary_zh": "过膝长筒袜", "aliases": ["过膝丝袜", "高筒过膝袜"], "spec": "独立双筒剪裁，长度恰好高出髌骨上方 5-10cm；袜口为加宽弹性罗纹或微型硅胶点防滑", "visual": "在膝上形成鲜明横向截断，恰好遮盖膝盖骨粗糙感并平滑小腿肌肉弧度，配合短裙露出大腿下段，极具年轻感、学院俏皮感与减龄张力。", "tactile": "腰腹臀完全自由；屈伸膝盖时袜口与膝后腘窝有微弱拉伸感，面料需具备优良弹性以防走动时滑落堆褶。", "styling": "英伦学院风（搭配百褶短裙、乐福鞋）；秋冬内搭于高筒长靴内露出 2-5cm 袜边形成层次穿搭；日系 JK 与少女风穿搭。", "hero_img": "./02_版型结构与长度剪裁/18_过膝长筒袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/18_过膝长筒袜_穿搭场景图.jpg"}, {"id": 19, "id_str": "19", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Crotchless tights / Open-crotch tights / Suspender tights", "zh_name": "开档连裤袜 / 免脱连裤袜 / 镂空透气裤袜", "primary_zh": "开档连裤袜", "aliases": ["免脱连裤袜", "镂空透气裤袜"], "spec": "保留连裤袜腰带与全腿悬挂包裹系统，在会阴及裆部正中设计为大面积椭圆形或交叉无缝锁边开口，裆底完全镂空", "visual": "外观外穿时与常规连裤袜毫无二致，维持完美的纵向连贯性与腿部均匀光影；私密状态下呈现镂空结构感官张力。", "tactile": "彻底消除普通连裤袜裆部潮湿闷热感，全天候干爽透气；如厕时完全无需穿脱丝袜，彻底避免了脱穿过程中指甲划破或勾丝损坏。", "styling": "长时间差旅通勤（如长途飞行、全天候会议外勤，避免繁琐穿脱）；对会阴部透气卫生有严苛要求的日常穿着；私密情调搭配。", "hero_img": "./02_版型结构与长度剪裁/19_开档连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/19_开档连裤袜_穿搭场景图.jpg"}, {"id": 20, "id_str": "20", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Low-rise tights / Hipster tights", "zh_name": "低腰连裤袜 / 露脐低腰丝袜", "primary_zh": "低腰连裤袜", "aliases": ["露脐低腰丝袜"], "spec": "腰带高度大幅下移，水平线截于髋骨骨盆下方或耻骨联合上方约 3-5cm 处，完全避开肚脐与中腹", "visual": "完美解决穿低腰下装时露出高腰丝袜腰带的尴尬破绽，保持腰腹肌肤大面积完整裸露，拉长腰部纵向比例。", "tactile": "胃部与上腹部零束缚，餐后无紧绷压迫感；依托髋骨与侧腰微压支撑，需精细校准尺码以防滑落。", "styling": "搭配 Y2K 超低腰牛仔裤、低腰百褶超短裙、露脐短上衣（Crop-top）；平腹健美身材展现。", "hero_img": "./02_版型结构与长度剪裁/20_低腰连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/20_低腰连裤袜_穿搭场景图.jpg"}, {"id": 21, "id_str": "21", "category_full": "版型结构与长度剪裁 (Lengths & Silhouettes)", "category": "版型结构与长度剪裁", "folder": "02_版型结构与长度剪裁", "en_name": "Maternity tights / Pregnancy support tights", "zh_name": "孕妇托腹连裤袜 / 孕期高腰舒腹丝袜", "primary_zh": "孕妇托腹连裤袜", "aliases": ["孕期高腰舒腹丝袜"], "spec": "腹部前片采用立体大容量超柔无缝针织 U 型托腹囊袋，配可调节弹力扣，后腰与腹底配交叉托腹带，腿部采用轻柔抗浮肿微压", "visual": "柔和贴合隆起的腹部曲线，外穿贴身孕妇裙装时呈现平顺无勒痕的圆润孕肚轮廓；腿部轻微收紧，减轻孕期浮肿带来的臃肿感。", "tactile": "腹部温和托抱无压迫紧绷感，腹底支撑带分担下腹重坠感；腿部渐进微压有效促进下肢静脉血液回流，缓解孕期水肿酸痛。", "styling": "孕妇日常通勤与孕期社交正装（搭配孕妇针织裙、宽松衬衫裙）；孕期写真摄影艺术照。", "hero_img": "./02_版型结构与长度剪裁/21_孕妇托腹连裤袜_商品主图.jpg", "lifestyle_img": "./02_版型结构与长度剪裁/21_孕妇托腹连裤袜_穿搭场景图.jpg"}, {"id": 22, "id_str": "22", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Matte tights / Powder matte / Full-dull sheers", "zh_name": "哑光丝袜 / 雾面丝袜 / 全消光丝袜 / 柔焦磨皮袜", "primary_zh": "哑光丝袜", "aliases": ["雾面丝袜", "全消光丝袜", "柔焦磨皮袜"], "spec": "添加 0.5%-2.0% 高浓度二氧化钛(TiO2)消光剂，采用圆形截面或假捻消光长丝；各向同性微观漫反射，镜面反射趋零", "visual": "无高光反差点，呈现收敛退后的视觉塑形效果，强效修饰显瘦；如粉底液般均匀虚化毛孔、轻微静脉瑕疵与油光，呈现高级粉雾柔焦感。", "tactile": "表面轻柔微涩，呈粉雾桃皮绒般温润触感，具备轻微摩擦阻尼感，滑动时不发滑，无合成塑料冰冷感，亲肤贴合度高。", "styling": "严谨商务办公、正式外交商务会谈、日常极简通勤、庄重典礼；搭配精纺羊毛套装、铅笔裙、风衣与哑光牛皮单鞋/乐福鞋。", "hero_img": "./03_表面光泽与视觉质感/22_哑光丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/22_哑光丝袜_穿搭场景图.jpg"}, {"id": 23, "id_str": "23", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Satin sheen tights / Silky luster pantyhose / Natural glow sheers", "zh_name": "缎光丝袜 / 丝光微闪袜 / 自然珠光袜 / 水光肌丝袜", "primary_zh": "缎光丝袜", "aliases": ["丝光微闪袜", "自然珠光袜", "水光肌丝袜"], "spec": "半消光锦纶(TiO2约0.15%-0.35%)与精细旦数平滑连续长丝；弱定向微镜面反射与柔和漫反射平衡，不刺眼", "visual": "呈现天然健康的水光肌质感与柔光光晕（Soft Halo）；迎光面呈现自然明暗渐变，不刺眼无塑料感，凸显女性腿部优雅起伏线条。", "tactile": "触感丝滑如缎、温润细腻，表面摩擦系数极低，顺滑无阻力，贴肤微凉轻薄，与皮肤接触有天然真丝般的贴服滑爽感。", "styling": "高端晚宴、鸡尾酒会、浪漫约会、轻奢商务酒会、婚礼伴娘；搭配真丝吊带裙、缎面衬衫、羊绒大衣、尖头细高跟鞋。", "hero_img": "./03_表面光泽与视觉质感/23_缎光丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/23_缎光丝袜_穿搭场景图.jpg"}, {"id": 24, "id_str": "24", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Glossy tights / High-shine pantyhose / Oil shiny tights", "zh_name": "油亮丝袜 / 高光丝袜 / 油光袜 / 液体光泽袜", "primary_zh": "油亮丝袜", "aliases": ["高光丝袜", "油光袜", "液体光泽袜"], "spec": "超有光锦纶(0%消光剂)与三叶形(Trilobal)棱镜截面长丝，配合高比例氨纶超紧绷拉伸与热压定型微硅油整理；强定向镜面反射", "visual": "高明暗反差，沿小腿骨嵴形成一条笔直明亮的高光反光带，具备极强的前推拉长与雕塑效果；呈现如涂抹润肤油般的湿润高光，极其醒目。", "tactile": "极度平滑如玻璃表面，零摩擦阻力，织物密实紧绷且回弹力强，触感冰凉紧致，表面无任何微绒毛或粗糙感。", "styling": "时尚秀场摄影、夜店派对、舞台表演（百老汇/拉丁舞专用）、Y2K辣妹潮流；搭配漆皮短裙、超高跟穆勒鞋、机车夹克。", "hero_img": "./03_表面光泽与视觉质感/24_油亮丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/24_油亮丝袜_穿搭场景图.jpg"}, {"id": 25, "id_str": "25", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Shimmer tights / Lurex tights / Glitter pantyhose", "zh_name": "金银丝丝袜 / 细葱丝袜 / 闪粉丝袜 / 星空亮丝袜", "primary_zh": "金银丝丝袜", "aliases": ["细葱丝袜", "闪粉丝袜", "星空亮丝袜"], "spec": "在锦氨底网中混纺包覆铝蒸镀薄膜切片纱(Lurex)或闪光聚酯微丝；无数朝向各异的反光微面形成离散点状闪烁反射", "visual": "随肢体行动与光线角度呈现如星河跳跃般的动态闪烁感；反光点离散分布，视觉略带轻微扩张与华丽膨胀感，打破平面沉闷。", "tactile": "表面具有轻微砂砾感与金属微粗粝感；高品质款内层保持锦氨柔软贴肤，整体滑爽度略低于纯尼龙丝袜。", "styling": "新年/圣诞节日派对、复古迪斯科狂欢、演出现场、艺术沙龙；搭配天鹅绒礼服、廓形西装、金属色高跟鞋与玛丽珍鞋。", "hero_img": "./03_表面光泽与视觉质感/25_金银丝丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/25_金银丝丝袜_穿搭场景图.jpg"}, {"id": 26, "id_str": "26", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Wet-look tights / Vinyl tights / Faux latex legwear", "zh_name": "湿感丝袜 / 漆皮胶感袜 / 液体乳胶感丝袜 / 仿皮高光袜", "primary_zh": "湿感丝袜", "aliases": ["漆皮胶感袜", "液体乳胶感丝袜", "仿皮高光袜"], "spec": "高弹针织底布表面通过刮涂或高温复合一层致密聚氨酯(PU)或PVC涂层胶层，彻底封闭纤维微孔；连续介质薄膜完全镜面反射", "visual": "呈现如浸入液体中的深邃湿润感与强硬高光反差；反光边缘锋利分明，极具工业未来感与前卫攻击性，身体轮廓线条极度凸显。", "tactile": "橡胶与乳胶手感，干燥时摩擦阻尼极大、带微黏感，穿脱有弹性包裹骨感，透气性较低，具有明显防风皮质感。", "styling": "先锋秀场、哥特暗黑风（Goth）、赛博朋克（Cyberpunk）、机能风潮；搭配解构西装、重型战术马丁靴、皮质束身衣。", "hero_img": "./03_表面光泽与视觉质感/26_湿感丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/26_湿感丝袜_穿搭场景图.jpg"}, {"id": 27, "id_str": "27", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Pearlescent tights / Iridescent tights / Duo-chrome tights", "zh_name": "偏光丝袜 / 贝母幻彩丝袜 / 变色龙丝袜 / 极光幻彩袜", "primary_zh": "偏光丝袜", "aliases": ["贝母幻彩丝袜", "变色龙丝袜", "极光幻彩袜"], "spec": "阳离子涤纶与锦纶双组分异染工艺(Bicolor Cross-dyeing)或掺入云母微薄片珠光颜料；薄膜干涉与布拉格衍射光学原理", "visual": "视角依赖型变色龙色流（Color-shifting）；随步伐走动显现正面与侧面互补的双重幻彩色谱，如母贝极光般空灵飘逸，自带色度立体塑形效应。", "tactile": "极度顺滑平整，与高级丝光面料触感一致，细腻无微粒，触手温润柔滑，亲肤透气性极佳。", "styling": "人鱼风美学（Mermaidcore）、仙子精灵风（Fairycore）、先锋概念派对、海滨度假晚宴；搭配偏光真丝裙、欧根纱长裙、PVC透明高跟鞋。", "hero_img": "./03_表面光泽与视觉质感/27_偏光丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/27_偏光丝袜_穿搭场景图.jpg"}, {"id": 28, "id_str": "28", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Velvet tights / Velour microfiber opaque tights", "zh_name": "天鹅绒雾面丝袜 / 桃皮绒雾面袜 / 深邃浓黑哑光袜", "primary_zh": "天鹅绒雾面丝袜", "aliases": ["桃皮绒雾面袜", "深邃浓黑哑光袜"], "spec": "高密超细微纤维复丝(Microfiber 0.5-1.0 dtex)，经假捻蓬松起绒；多级漫反射与深度光线捕获，吸光率超95%", "visual": "完全无反光白光，呈现深邃浓郁的纯黑或纯色质感，视觉紧致收拢显瘦，厚实保暖且极富高级精纺织物厚重感。", "tactile": "触感如天鹅绒与桃皮般极度温润软糯、亲肤细腻，摩擦阻力柔和，上身无丝毫冰凉感，弹性包裹柔和舒展。", "styling": "秋冬保暖通勤、高雅正装、英伦学院风（Preppy）、极简大衣穿搭；搭配羊绒大衣、粗花呢裙、厚底乐福鞋或长筒靴。", "hero_img": "./03_表面光泽与视觉质感/28_天鹅绒雾面丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/28_天鹅绒雾面丝袜_穿搭场景图.jpg"}, {"id": 29, "id_str": "29", "category_full": "表面光泽与视觉质感 (Finish, Shine & Sheen)", "category": "表面光泽与视觉质感", "folder": "03_表面光泽与视觉质感", "en_name": "Rhinestone sheers / Crystal embellished tights / Diamante fishnets", "zh_name": "水钻丝袜 / 烫钻透肉丝袜 / 晶钻网袜 / 璀璨钻光袜", "primary_zh": "水钻丝袜", "aliases": ["烫钻透肉丝袜", "晶钻网袜", "璀璨钻光袜"], "spec": "在薄透底袜或细网袜上矩阵热压多切面水晶/人造玻璃烫钻；微棱镜高折射色散原理，折射出七彩火彩点", "visual": "底袜隐形或低调漫反射，水晶钻点如碎钻星辰迸发高强度七彩闪光，华丽夺目，吸引绝对视觉焦点，充满奢华晚宴仪式感。", "tactile": "外侧有明显的硬质立体凸起颗粒感，内侧平贴无刺感，有一定下坠与拉伸骨架感，穿脱需防刮蹭。", "styling": "高端红毯盛典、跨年舞台焦点造型、重要纪念晚宴；搭配极简高开衩礼服裙、缎面尖头鞋、聚光灯晚礼服。", "hero_img": "./03_表面光泽与视觉质感/29_水钻丝袜_商品主图.jpg", "lifestyle_img": "./03_表面光泽与视觉质感/29_水钻丝袜_穿搭场景图.jpg"}, {"id": 30, "id_str": "30", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Micro-fishnet tights / Fine mesh tights / Micronet", "zh_name": "细孔渔网袜 / 微孔网袜 / 密网袜 / 细网袜", "primary_zh": "细孔渔网袜", "aliases": ["微孔网袜", "密网袜", "细网袜"], "spec": "孔径 0.5~2mm；高针距拉舍尔经编，15-30D 锦纶复丝与氨纶混纺；节点细密平滑防勾丝脱散", "visual": "远观呈现类似 15D 半透黑丝的雾面烟熏暗影质感，近看展现细腻微网肌理；小腿侧面形成高密度修容阴影，视觉收缩感居所有网袜之首，极显腿细。", "tactile": "触感近乎平滑亲肤，无明显绳结阻尼；四向高弹无束缚感，透气排湿远优于平纹丝袜，脚趾无压迫感，久穿无勒痕。", "styling": "职场轻熟风（Office Chic）、法式复古、老钱极简（Old Money）；搭配西装套裙、铅笔裙、粗花呢外套、乐福鞋或猫跟单鞋；网袜入门首选。", "hero_img": "./04_渔网与镂空提花/30_细孔渔网袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/30_细孔渔网袜_穿搭场景图.jpg"}, {"id": 31, "id_str": "31", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Medium fishnet tights / Classic fishnets / Mid-gauge mesh", "zh_name": "中孔网袜 / 经典渔网袜 / 标准菱格网袜", "primary_zh": "中孔网袜", "aliases": ["经典渔网袜", "标准菱格网袜"], "spec": "孔径 4~7mm；经典菱形或六角拉舍尔经编；30-50D 锦纶+氨纶，交织点加固锁结", "visual": "经典肤色与深色网格高对比几何波浪感；适度露肤与适中量感，既具辨识度又不过分夸张，菱形顶点纵向延展，带来自然的腿部线条平衡感。", "tactile": "网格凹凸立体感明显，手指抚摸有微小节点阻尼；空气自由流通清凉透气，脱下后皮肤短期内留有淡浅菱格压痕。", "styling": "美式街头风（Streetwear）、轻朋克（Soft Grunge）、法式慵懒；搭配破洞牛仔裤（破洞处内搭露网）、皮短裙、马丁靴、厚底靴。", "hero_img": "./04_渔网与镂空提花/31_中网丝袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/31_中网丝袜_穿搭场景图.jpg"}, {"id": 32, "id_str": "32", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Large mesh tights / Whale net tights / Macro net / Fence net", "zh_name": "大孔渔网袜 / 粗孔网袜 / 鲸网袜 / 大眼渔网袜", "primary_zh": "大孔渔网袜", "aliases": ["粗孔网袜", "鲸网袜", "大眼渔网袜"], "spec": "孔径 12~25mm+；粗旦高强加捻锦纶或特种弹力绳线编织；粗结节骨架，四向超大开孔", "visual": "大面积原生肤色暴露，粗黑网线对腿肉形成强烈的“几何捆绑与切割”张力，具有强烈的野性冲击力；视觉膨胀感明显，对腿型紧实度要求高。", "tactile": "立体感极强，有鲜明的绳线硬挺感与打结处硬质颗粒感；极致通风透气，绳线勒在腿肉上有明确的压附感。", "styling": "重金属摇滚、硬核朋克、Y2K辣妹、音乐节 Rave、舞台演艺；搭配厚底机车靴、破洞毛边牛仔短裤、重工皮衣，或叠穿于纯色丝袜外。", "hero_img": "./04_渔网与镂空提花/32_大孔渔网袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/32_大孔渔网袜_穿搭场景图.jpg"}, {"id": 33, "id_str": "33", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "All-over lace tights / Floral lace pantyhose / Chantilly lace tights", "zh_name": "全蕾丝提花丝袜 / 全蕾丝连裤袜 / 法式蕾丝镂空袜", "primary_zh": "全蕾丝提花丝袜", "aliases": ["全蕾丝连裤袜", "法式蕾丝镂空袜"], "spec": "多梳栉贾卡拉舍尔经编；细腻薄纱微孔网底复合浮雕花卉/巴洛克暗纹，常带 Cordonnet 轮廓粗线", "visual": "宫廷华贵与繁复浪漫美感；黑白蕾丝与皮肤交互渗透，斑驳错落宛如皮肤上的浮雕刺青；繁密图案打散腿部线条，巧妙掩盖微小瑕疵。", "tactile": "层次丰富，底网柔软贴服，浮雕花纹饱满凸起微涩；贴合肌肤富弹性，但需防范尖锐首饰勾挂浮雕线头。", "styling": "法式浪漫、复古哥特萝莉（Gothic Lolita）、宫廷维多利亚风、芭蕾核（Balletcore）；搭配丝绒礼服裙、真丝吊带裙、玛丽珍高跟鞋。", "hero_img": "./04_渔网与镂空提花/33_全蕾丝连裤袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/33_全蕾丝连裤袜_穿搭场景图.jpg"}, {"id": 34, "id_str": "34", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Diamond mesh tights / Argyle openwork tights / Harlequin net", "zh_name": "菱形网眼丝袜 / 菱格提花网袜 / 阿盖尔镂空网袜", "primary_zh": "菱形网眼丝袜", "aliases": ["菱格提花网袜", "阿盖尔镂空网袜"], "spec": "孔径 6~12mm；双梳贾卡织造；阿盖尔几何实心与镂空菱格交替排布，纵向延伸性强", "visual": "垂直锐角菱形引导视线上下游走，纵向拉伸显腿修长，显著修正小腿曲线；兼具英伦理性美感与建筑几何秩序，去媚感强。", "tactile": "几何线条交界清晰凸起，实心与镂空交界处触感微凸有层次；伸展均匀，膝部不易松弛变形。", "styling": "英伦学院风（Dark Academia）、摩登通勤、复古雅痞；搭配百褶裙、苏格兰格纹裙、驼色羊毛大衣、布洛克雕花鞋或牛津鞋。", "hero_img": "./04_渔网与镂空提花/34_菱格提花网袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/34_菱格提花网袜_穿搭场景图.jpg"}, {"id": 35, "id_str": "35", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Floral jacquard tights / Botanical openwork pantyhose", "zh_name": "花卉提花镂空丝袜 / 植物藤蔓提花袜 / 玫瑰镂空连裤袜", "primary_zh": "花卉提花镂空丝袜", "aliases": ["植物藤蔓提花袜", "玫瑰镂空连裤袜"], "spec": "电子贾卡精密提花；微孔网眼为底，高密度平针织出玫瑰/藤蔓花瓣，透光度多层次过渡", "visual": "犹如小腿攀爬立体藤蔓刺青；不规则植物打破对称沉闷，视觉焦点自然凝聚在花瓣上，兼具东方水墨意境与法式浪漫雅致。", "tactile": "花卉部位致密厚实微茸，网底轻薄透风；贴合肌肤柔软平顺，触觉层次丰富，线圈细腻无刺痒感。", "styling": "新中式国风、复古森系、法式浪漫；搭配改良旗袍、盘扣开衫、真丝半身裙、小猫跟穆勒鞋；茶会雅集与艺术展。", "hero_img": "./04_渔网与镂空提花/35_花卉提花丝袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/35_花卉提花丝袜_穿搭场景图.jpg"}, {"id": 36, "id_str": "36", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Geometric openwork tights / Linear texture fishnets / Chevron mesh", "zh_name": "几何镂空丝袜 / 线条肌理连裤袜 / 人字纹镂空袜 / 视错觉窗格网袜", "primary_zh": "几何镂空丝袜", "aliases": ["线条肌理连裤袜", "人字纹镂空袜", "视错觉窗格网袜"], "spec": "人字纹(Chevron)、纵向条纹或六角蜂窝镂空；抽针或浮线工艺，线宽 1.5~3mm；高弹肋条肌理", "visual": "视错觉（Optical Illusion）纵向拉伸极致显瘦；几何结构充满现代建筑感与未来科技感，削弱传统网袜情欲色彩，呈现克制先锋感。", "tactile": "具有明显的纵向肋条立体凹凸手感，微压贴合腿部肌肉；纤维筋骨感好，回弹性卓越，清爽吸汗。", "styling": "先锋解构主义、都市极简、赛博高街；搭配廓形大衣、不对称剪裁半身裙、方头切尔西短靴、高帮帆布鞋；秀场与发布会。", "hero_img": "./04_渔网与镂空提花/36_几何镂空丝袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/36_几何镂空丝袜_穿搭场景图.jpg"}, {"id": 37, "id_str": "37", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Back-seam fishnet tights / Retro seamed fishnets / Cuban heel fishnets", "zh_name": "复古后缝线渔网袜 / 古巴跟接缝网袜 / 经典海报女郎网袜", "primary_zh": "复古后缝线渔网袜", "aliases": ["古巴跟接缝网袜", "经典海报女郎网袜"], "spec": "细网或中网拉舍尔经编；腿后中轴贯穿高密度实心垂直缝线组织，常延伸至足底古巴跟", "visual": "经典的后视线聚焦点，产生极致笔直挺拔的视觉引力，步伐走动间风情万种，带有极浓郁的 1950 年代好莱坞黄金时期韵味。", "tactile": "后背正中有一道明显凸起的致密骨线触感，与侧面柔韧网格形成反差；穿着时需仔细对齐中轴中线。", "styling": "Pin-up 复古名媛、百老汇舞台风、Rockabilly 摇滚复古；搭配包臀铅笔裙、红底尖头细高跟鞋；复古沙龙与红毯宴会。", "hero_img": "./04_渔网与镂空提花/37_后缝线网袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/37_后缝线网袜_穿搭场景图.jpg"}, {"id": 38, "id_str": "38", "category_full": "渔网、镂空与蕾丝提花 (Fishnets & Lace)", "category": "渔网、镂空与蕾丝提花", "folder": "04_渔网与镂空提花", "en_name": "Point d'esprit / Plumetis mesh tights / Dotted swiss fishnets", "zh_name": "波点透孔提花网袜 / 瑞士点镂空网袜 / 法式小波点网袜", "primary_zh": "波点透孔提花网袜", "aliases": ["瑞士点镂空网袜", "法式小波点网袜"], "spec": "轻盈微孔六角薄纱网眼底；规则散布高密度编织的实心微凸圆点(Point d'Esprit)", "visual": "法式俏皮与漫不经心的少女感；点状分散视线，修饰轻微腿部凹凸，兼具复古与减龄效果，灵动透气。", "tactile": "底网滑爽通透，圆点处有圆润凸起的立体颗粒触感；轻盈无感，夏季穿戴清凉透气不粘身。", "styling": "新法式浪漫、巴黎街头风、学院减龄穿搭；搭配法式茶歇裙、卡其色风衣、玛丽珍单鞋；日常约会与周末早午餐。", "hero_img": "./04_渔网与镂空提花/38_波点渔网袜_商品主图.jpg", "lifestyle_img": "./04_渔网与镂空提花/38_波点渔网袜_穿搭场景图.jpg"}, {"id": 39, "id_str": "39", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Polka dot tights / Swiss dot tights / Point d'esprit hosiery", "zh_name": "波点丝袜 / 瑞士点点袜 / 浮点波点袜 / 经典波尔卡圆点连裤袜", "primary_zh": "波点丝袜", "aliases": ["瑞士点点袜", "浮点波点袜", "经典波尔卡圆点连裤袜"], "spec": "电脑提花织入、静电立体植绒（Swiss Dot）或数码印花；包含微波点(1-2mm)至大波点(15mm+)", "visual": "微波点在腿部形成轻微散色与柔焦效果，虚化膝关节与小腿瑕疵；细小均布波点具收敛紧凑感，稀疏大波点具复古焦点与平面膨胀张力。", "tactile": "提花款平整爽滑；植绒款具备鲜明的天鹅绒般微绒毛浮雕触感（Velvety / Fuzzy touch）；印花款平滑干爽。", "styling": "法式优雅风（French Chic）、名媛轻熟风、赫本复古风；搭配小黑裙、小香风粗花呢套装、玛丽珍鞋、法式猫跟鞋；通勤、茶会、约会。", "hero_img": "./05_图案印花与线条设计/39_波点丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/39_波点丝袜_穿搭场景图.jpg"}, {"id": 40, "id_str": "40", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Back seam stockings / Seamed tights / Fully fashioned hosiery", "zh_name": "后背缝线丝袜 / 背骨线丝袜 / 复古接缝丝袜 / 骨线连裤袜", "primary_zh": "后背缝线丝袜", "aliases": ["背骨线丝袜", "复古接缝丝袜", "骨线连裤袜"], "spec": "传统平机全成型缝合真实接缝（带古巴跟与减针眼）；现代圆机织入仿骨线或经向平车压线", "visual": "视错觉强力纵向拉长（Vertical Elongation），将腿部分割为对称双侧，中轴线引导演示出挺拔挺立的小腿与跟腱，步履间极具动态性感张力。", "tactile": "传统真缝线处有饱满的脊状凸起棱线，触摸有扎实的机械缝合咬合手感；现代提花款平滑贴身仅微带经向线圈感。", "styling": "好莱坞黄金时代复古风、黑色电影蛇蝎美人风（Femme Fatale）；搭配修身包臀铅笔裙、高开衩晚礼服、尖头细高跟鞋；晚宴红毯、舞会。", "hero_img": "./05_图案印花与线条设计/40_后背骨线丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/40_后背骨线丝袜_穿搭场景图.jpg"}, {"id": 41, "id_str": "41", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Mock suspender tights / Faux thigh-high tights / Illusion garter tights", "zh_name": "假高筒丝袜 / 假吊带拼接丝袜 / 视错觉吊带裤袜 / 假过膝两节连裤袜", "primary_zh": "假高筒丝袜", "aliases": ["假吊带拼接丝袜", "视错觉吊带裤袜", "假过膝两节连裤袜"], "spec": "差异化旦尼尔梯度编织（下段40-100D实色，上段10-20D超透肉），结合仿吊带提花带与高温定型工艺", "visual": "明暗分段视错觉，假过膝段收紧小腿，透肤段将视觉分割线上移至大腿中上部，营造大长腿、短躯干的绝佳身材比例错觉。", "tactile": "分区双重质感：下半段厚实软糯弹韧包裹，上半段薄透滑润，拼接处平贴无痕，彻底消除传统金属吊袜带扣具的硌压异物感。", "styling": "朋克摇滚、暗黑哥特、亚文化先锋街头（E-girl/Y2K）、暗黑学院风；搭配高腰百褶短裙、皮短裤、厚底马丁靴、大廓形西装；演出、街拍、派对。", "hero_img": "./05_图案印花与线条设计/41_假高筒丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/41_假高筒丝袜_穿搭场景图.jpg"}, {"id": 42, "id_str": "42", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Tattoo tights / Trompe-l'œil printed tights / Illusion inked hosiery", "zh_name": "纹身丝袜 / 局部印花丝袜 / 拟真刺青薄丝袜 / 艺术插画连裤袜", "primary_zh": "纹身丝袜", "aliases": ["局部印花丝袜", "拟真刺青薄丝袜", "艺术插画连裤袜"], "spec": "高温数码热升华转印渗透聚酰胺纤维；基于人体工学解剖进行定位预变形映射（外踝/小腿肚）", "visual": "10-15D超透底纱贴肤隐形，呈现裸肌刺青假象；单点精细图形吸引第一视觉焦点，打破传统双腿对称单调感，纵向藤蔓图案具延伸感。", "tactile": "零触感附着（Zero Hand-Feel），染料完全渗入纤维分子间隙，无胶膜无龟裂硬梗，与基底织物触感完全一致，轻盈透气滑爽。", "styling": "前卫个性街头风、波西米亚浪人风、甜酷少女、森系插画文艺风；搭配复古做旧牛仔短裙、棉麻连衣裙、帆布板鞋；艺术展、市集、音乐节。", "hero_img": "./05_图案印花与线条设计/42_纹身印花丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/42_纹身印花丝袜_穿搭场景图.jpg"}, {"id": 43, "id_str": "43", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Pinstripe tights / Vertical striped tights / Sheer ribbed-line tights", "zh_name": "细条纹丝袜 / 竖条纹丝袜 / 针状细纹连裤袜 / 纵向律动条纹袜", "primary_zh": "细条纹丝袜", "aliases": ["竖条纹丝袜", "针状细纹连裤袜", "纵向律动条纹袜"], "spec": "经向选针编织/落针罗纹(Drop-Stitch)或双旦尼尔交替排布（1-3mm针状细纹或粉笔细纹）", "visual": "奥佩尔-孔德几何错觉引导视线垂直流动，极强拉长下肢长径并收拢横向围度，弱化膝盖内扣或小腿肌肉外翻，赋予双腿端正利落线条感。", "tactile": "具有规则细腻的经向微罗纹凹凸质感（Linear ribbed），横向抚摸有节律感，纵向抚摸滑顺无阻，回弹恢复性能优异。", "styling": "职场大女人气场风（Power Dressing）、现代极简风、雅痞绅士风；搭配高腰吸烟裤（露踝）、及膝铅笔裙、羊毛大衣、牛津鞋；商务办公、论坛演讲。", "hero_img": "./05_图案印花与线条设计/43_细条纹丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/43_细条纹丝袜_穿搭场景图.jpg"}, {"id": 44, "id_str": "44", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Plaid tights / Houndstooth tights / Tartan hosiery / Prince of Wales check", "zh_name": "千鸟格丝袜 / 苏格兰格纹丝袜 / 威尔士亲王格裤袜 / 复古几何棋盘格袜", "primary_zh": "千鸟格丝袜", "aliases": ["苏格兰格纹丝袜", "威尔士亲王格裤袜", "复古几何棋盘格袜"], "spec": "电脑双面提花(Double Jacquard)织造，50-80D微纤维致密编织，经典千鸟犬牙格或交叉苏格兰格", "visual": "极高的视觉信息浓度与复古体量感，构成全身第一视觉焦点；高对比破碎几何图形具有光学迷彩效应，能有效掩盖局部皮肤凹凸与瑕疵。", "tactile": "触感扎实丰满，全哑光温润（Wool-like hand feel），具备接近精纺毛料般的厚实质感，抗勾丝与抗起球性能出众。", "styling": "英伦学院风（Preppy Style）、复古学院风（Dark Academia）、60年代摩斯风潮；搭配羊毛双面呢大衣、厚呢短裙、切尔西短靴、复古布洛克鞋。", "hero_img": "./05_图案印花与线条设计/44_千鸟格丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/44_千鸟格丝袜_穿搭场景图.jpg"}, {"id": 45, "id_str": "45", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Ombre tights / Gradient tights / Dip-dyed pantyhose / Degradé stockings", "zh_name": "渐变色丝袜 / 晕染丝袜 / 浸染过渡连裤袜 / 烟熏渐变丝袜", "primary_zh": "渐变色丝袜", "aliases": ["晕染丝袜", "浸染过渡连裤袜", "烟熏渐变丝袜"], "spec": "程控垂直升降分段阶梯浸染(Dip-Dyeing)或数码平滑过渡；脚踝深浓向上渐次减淡至大腿微透", "visual": "烟熏柔焦水彩晕染感；脚踝深色收敛下盘重心，向上透亮自然拔高视觉，形成倒锥形纵向立体光影修饰，空灵流动不生硬。", "tactile": "染料分子级化学渗透结合，表面完全无任何涂层硬壳感，保持超细锦纶原汁原味的丝滑如水、微润亲肤触感。", "styling": "前卫艺术先锋风、仙气空灵风（Fairycore）、极简高定时装；搭配极简黑白灰纯色裙、不对称解构衬衫裙、透明几何跟单鞋；画廊开幕、时尚晚宴。", "hero_img": "./05_图案印花与线条设计/45_渐变色丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/45_渐变色丝袜_穿搭场景图.jpg"}, {"id": 46, "id_str": "46", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Monogram tights / Logo tights / Designer motif pantyhose", "zh_name": "大牌老花丝袜 / 满印字母LOGO丝袜 / 品牌标识提花连裤袜", "primary_zh": "大牌老花丝袜", "aliases": ["满印字母LOGO丝袜", "品牌标识提花连裤袜"], "spec": "高精经编双层反光/哑光提花（如GG/FF/双C），或表面环保微立体硅胶植字，呈45度对角线阵列满印", "visual": "强烈的高级时装辨识度与街头奢华感；45度规律密布的微型几何字母阵列在腿部形成微马赛克光影反射，分散杂光并收敛膨胀，点亮暗色穿搭。", "tactile": "提花款平整微带丝光凹凸手感；植胶款触摸有清晰立体胶质轮廓，拉伸回弹柔韧平整。", "styling": "高街奢华风（High-End Streetwear）、卡戴珊热辣风、老钱先锋混搭；搭配廓形垫肩西装、皮质超短裙、尖头高跟袜靴、厚底乐福鞋；秀场街拍、聚会派对。", "hero_img": "./05_图案印花与线条设计/46_大牌老花丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/46_大牌老花丝袜_穿搭场景图.jpg"}, {"id": 47, "id_str": "47", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Argyle tights / Harlequin geometric hosiery / Diamond pattern tights", "zh_name": "菱格纹丝袜 / 阿盖尔几何花纹丝袜 / 丑角几何菱格连裤袜", "primary_zh": "菱格纹丝袜", "aliases": ["阿盖尔几何花纹丝袜", "丑角几何菱格连裤袜"], "spec": "苏格兰传统阿盖尔嵌花(Intarsia)提花编织，实心菱形块与虚线交错，40-70D弹力混纺", "visual": "立体的菱形几何块面顺应腿部圆柱形体自适应曲面拉伸，中轴线对称菱形形成对称锚点，具有明显的结构感与视觉收紧效果，复古端庄。", "tactile": "织物扎实平整，全哑光针织质感温润亲肤，交界处略带微立体浮纱质感，贴身服帖不易在膝弯形成死褶。", "styling": "常春藤预备校风（Ivy League）、怪异极客风（Geek Chic）、复古学院混搭；搭配百褶裙、板球V领毛衣、牛津鞋、复古乐福鞋；校园与田园出行。", "hero_img": "./05_图案印花与线条设计/47_阿盖尔菱格纹丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/47_阿盖尔菱格纹丝袜_穿搭场景图.jpg"}, {"id": 48, "id_str": "48", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Animal print tights / Leopard print hosiery / Snake skin tights", "zh_name": "动物纹丝袜 / 豹纹丝袜 / 仿生蛇纹透肤丝袜 / 斑马纹连裤袜", "primary_zh": "动物纹丝袜", "aliases": ["豹纹丝袜", "仿生蛇纹透肤丝袜", "斑马纹连裤袜"], "spec": "15-20D超透底胚结合炭黑静电短绒立体植绒（雪豹纹），或高精分散染料数码直喷（蛇纹/斑马纹）", "visual": "不规则仿生纹理打破人体对称沉闷感，斑驳光影与透肉对比带来极强的视觉野性与荷尔蒙吸引力，将视觉重心完全转移到图案本身的艺术张力上。", "tactile": "植绒款手指触摸有如幼兽皮毛般的立体柔软微绒手感；印花款平滑服帖若无物，丝滑冰凉。", "styling": "华丽摇滚风（Glam Rock）、大嫂阔太风（Mob Wife Trend）、成熟性感名伶风；搭配人造皮草大衣、收腰皮衣、黑色极细高跟鞋；夜店、晚宴聚会。", "hero_img": "./05_图案印花与线条设计/48_动物纹丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/48_动物纹丝袜_穿搭场景图.jpg"}, {"id": 49, "id_str": "49", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Spiral illusion tights / Ergonomic curved line hosiery / Swirl tights", "zh_name": "人体工学螺旋曲线丝袜 / 视错觉扭转解构线条丝袜 / 弧线修容连裤袜", "primary_zh": "人体工学螺旋曲线丝袜", "aliases": ["视错觉扭转解构线条丝袜", "弧线修容连裤袜"], "spec": "高科技经编人体工学曲线提花或拼缝，深黑密实弧线沿骨骼肌肉呈3D立体螺旋环绕（如 Mugler 经典风格）", "visual": "动态三维雕塑修容错觉，环绕线条向内扭转聚拢，剧烈收缩腿部横截面，呈现未来主义超模长腿，极具赛博未来主义机械姬美学张力。", "tactile": "具备高弹塑身微压包裹感，平锁拼接过渡平整无痕，紧致有型如第二层功能性皮肤，随动作延展自如。", "styling": "赛博未来主义（Cyberpunk）、高定解构辣妹风；搭配结构剪裁西装、镂空紧身衣、漆皮靴、极简几何银饰；时装周、舞台表演、前卫大片。", "hero_img": "./05_图案印花与线条设计/49_螺旋视错觉丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/49_螺旋视错觉丝袜_穿搭场景图.jpg"}, {"id": 50, "id_str": "50", "category_full": "图案、印花与线条设计 (Patterns & Graphic Designs)", "category": "图案、印花与线条设计", "folder": "05_图案印花与线条设计", "en_name": "Botanical & Floral print tights / Vintage flower printed hosiery", "zh_name": "复古花卉印花丝袜 / 油画碎花薄丝袜 / 植物花藤数码印花连裤袜", "primary_zh": "复古花卉印花丝袜", "aliases": ["油画碎花薄丝袜", "植物花藤数码印花连裤袜"], "spec": "超清分散数码直喷印花，超薄裸透或浅烟灰底胚印制古典植物图鉴、洛可可蔷薇、水彩小碎花", "visual": "将艺术画作移植于双腿，纵向花藤蜿蜒拉长腿型，碎花散落散发古典田园浪漫与诗意层次，色彩丰富柔和，充满自然气息。", "tactile": "超薄裸感滑爽，完全无胶浆层厚度，清凉细腻透气，触手如水般柔软亲肤，贴身无异物感。", "styling": "田园仙女风（Cottagecore）、法式浪漫复古、洛丽塔风；搭配泡泡袖方领连衣裙、系带芭蕾平底鞋、草编包；花园婚礼、美术馆野餐。", "hero_img": "./05_图案印花与线条设计/50_植物碎花丝袜_商品主图.jpg", "lifestyle_img": "./05_图案印花与线条设计/50_植物碎花丝袜_穿搭场景图.jpg"}, {"id": 51, "id_str": "51", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Core-spun yarn tights / Spun-core pantyhose", "zh_name": "包芯丝连裤袜 / 氨纶包芯纱丝袜", "primary_zh": "包芯丝连裤袜", "aliases": ["氨纶包芯纱丝袜"], "spec": "芯纱为高弹氨纶(12%-20%)，外层单/双螺旋机械包覆锦纶长丝(80%-88%)；圆机纬编单面平针组织", "visual": "15D-30D半微透光至半遮盖，自然半消光或微丝光，光照下曲面反光柔和均匀；高弹贴合腿部曲面，关节弯曲处不易松弛堆褶。", "tactile": "手感平滑爽利、富有韧性与紧绷弹力；双向拉伸延展性好，紧密包裹而无压迫感，不易起球，耐磨度远优于纯锦纶薄袜。", "styling": "经典商务正装风（Business Formal）、职场轻熟风、都市名媛；商务会议、写字楼日常通勤、制服着装，四季常备基础款。", "hero_img": "./06_纺织材质与功能特性/51_包芯丝丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/51_包芯丝丝袜_穿搭场景图.jpg"}, {"id": 52, "id_str": "52", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Velvet tights / Microfiber pantyhose / 3D-knit opaque tights", "zh_name": "天鹅绒丝袜 / 超细纤维哑光连裤袜 / 3D编织天鹅绒袜", "primary_zh": "天鹅绒丝袜", "aliases": ["超细纤维哑光连裤袜", "3D编织天鹅绒袜"], "spec": "超细旦锦纶DTY低弹丝(<1.0dtex)搭配高回弹氨纶，采用3D立体编织技术（每一路氨纶同时成圈），假捻微蓬松微孔结构", "visual": "高级全哑光(Ultra-matte)，无漫反射浮夸光泽，色彩浓郁饱和度极高；40D半透至80D-120D不透肉，织纹极其致密，视觉显瘦遮瑕。", "tactile": "极致软糯亲肤，宛若天鹅绒毛羽般温润微绒感；四向大弹力延展，贴合轻柔无生硬勒压感，透气防风保暖性能优异。", "styling": "秋冬优雅复古风、法式简约、英伦学院风、静奢风（Quiet Luxury）、芭蕾风；秋冬户外出行、大衣毛呢裙及皮靴搭配。", "hero_img": "./06_纺织材质与功能特性/52_天鹅绒超细纤维丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/52_天鹅绒超细纤维丝袜_穿搭场景图.jpg"}, {"id": 53, "id_str": "53", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Crystal silk tights / Glass socks / Monofilament sheer stockings", "zh_name": "水晶丝袜 / 玻璃丝袜 / 高透明晶亮丝袜", "primary_zh": "水晶丝袜", "aliases": ["玻璃丝袜", "高透明晶亮丝袜"], "spec": "有光三叶异形截面锦纶单丝(95%-100%)，极少或不含氨纶(0%-5%)；高针数稀疏透光针织", "visual": "5D-15D超薄极度透明，呈水晶玻璃般晶莹通透与高折射高亮镜面光泽(Glass shine/Oil-shiny)，直射光下流光溢彩，反光极强。", "tactile": "触感微硬挺、清脆、极度滑爽(Crisp & Slick)，拉伸延展度有限（微弹），贴合依赖立体热定型剪裁，初触微凉。", "styling": "千禧辣妹风（Y2K）、晚宴礼服风、夜店派对、舞台戏剧风；短袜款常用于混搭玛丽珍鞋与细带高跟凉鞋打造复古摩登造型。", "hero_img": "./06_纺织材质与功能特性/53_水晶丝丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/53_水晶丝丝袜_穿搭场景图.jpg"}, {"id": 54, "id_str": "54", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Pure silk stockings / Silk blend stockings / Fully fashioned mulberry silk", "zh_name": "桑蚕丝长筒袜 / 蚕丝混纺丝袜 / 全成型纯蚕丝古董长袜", "primary_zh": "桑蚕丝长筒袜", "aliases": ["蚕丝混纺丝袜", "全成型纯蚕丝古董长袜"], "spec": "100%天然6A级桑蚕丝（天然蛋白质纤维），或真丝高比例混纺(70%蚕丝+25%锦纶+5%氨纶)；全成型平织机或超细圆机编织", "visual": "天然珍珠母贝柔和微光(Subtle pearlescent luster)，光泽内敛高贵无化纤感；微透至半透明，天然轻奢肌理，自然悬垂贴合。", "tactile": "如凝脂般温润滑爽，富含18种氨基酸极度亲肤；吸湿透气调温冬暖夏凉；纯真丝款无高弹性回复，需配合吊袜带穿着。", "styling": "老钱风（Old Money）、复古法式名媛、奢华沙龙高定；高规格晚宴、新娘婚礼装、红毯高定礼服及古董服饰搭配收藏。", "hero_img": "./06_纺织材质与功能特性/54_桑蚕丝丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/54_桑蚕丝丝袜_穿搭场景图.jpg"}, {"id": 55, "id_str": "55", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Graduated compression tights / Support hose / Medical compression stockings", "zh_name": "循序渐进压力袜 / 防静脉曲张压力袜 / 医疗级塑腿袜", "primary_zh": "循序渐进压力袜", "aliases": ["防静脉曲张压力袜", "医疗级塑腿袜"], "spec": "高特数重磅氨纶(25%-35%)与高韧锦纶，采用纬向衬垫组织；精准控制线圈张力，呈踝部100%至小腿70%至大腿40%阶梯压力递减", "visual": "70D-280D+高遮盖至全不透光，致密微哑光或全哑光；腿部脂肪肌肉被强力收拢压平，视觉围度明显收缩，无松垮褶皱。", "tactile": "强烈阶梯式环向压迫紧绷感(Firm compression)，拉伸阻力大，提供强效肌肉筋膜支撑感，有效消除酸胀下坠与水肿。", "styling": "久站久坐职业群体（空乘/护士/教师）、长途跨洋飞行防DVT、孕期水肿改善、轻度静脉曲张护理及术后日常塑形。", "hero_img": "./06_纺织材质与功能特性/55_压力袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/55_压力袜_穿搭场景图.jpg"}, {"id": 56, "id_str": "56", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Anti-snag tights / Rip-resistant pantyhose / Ladder-proof tights", "zh_name": "防勾丝丝袜 / 抗撕裂防脱丝连裤袜 / 融着防跑丝丝袜", "primary_zh": "防勾丝丝袜", "aliases": ["抗撕裂防脱丝连裤袜", "融着防跑丝丝袜"], "spec": "热熔聚氨酯纱(LYCRA FUSION/ROICA SF)热定型交织点微熔锁死；或防弹级超高分子量聚乙烯(UHMWPE, 如Sheertex)混纺强韧网织", "visual": "10D-30D通透均匀微哑光，与高级轻薄丝袜无异；强韧款微带细腻微颗粒感；局部破口不沿垂直纵向脱散抽丝(Ladder-proof)。", "tactile": "触感柔软平滑、回弹性好；UHMWPE强韧款初触微凉微挺；抗刮蹭抗撕裂能力极强，经受指甲、首饰、宠物爪刮擦不易破损。", "styling": "高频通勤挤地铁、宠物互动家庭、户外婚礼草地活动、长途出差；杜绝丝袜当众破洞脱丝跑线的社交尴尬。", "hero_img": "./06_纺织材质与功能特性/56_防勾丝丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/56_防勾丝丝袜_穿搭场景图.jpg"}, {"id": 57, "id_str": "57", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Seamless pantyhose / 360° seamless tights / Gusset-free tights", "zh_name": "无缝一体连裤袜 / 360度全无缝丝袜 / 隐形无痕一体袜", "primary_zh": "无缝一体连裤袜", "aliases": ["360度全无缝丝袜", "隐形无痕一体袜"], "spec": "高支超细锦纶双包氨纶，依托圣东尼(Santoni)大口径电子圆机一体成型编织，取消腰臀正中前后纵向合缝与底裆剪裁缝合", "visual": "360度全身无痕隐形(Second-skin)，无凹凸拼缝与隆起缝头；半透至微哑光通透细腻，各角度光线下线条流畅平滑。", "tactile": "极致平滑亲肤，杜绝接缝压痕与摩擦不适；宽幅一体腰圈均匀分散腹部压力，不卷边不勒肉，整体贴合延展自由度极高。", "styling": "极简高级风、超模紧身礼服风（Bodycon Glamour）、红毯静奢风；搭配紧身包臀裙、鱼尾裙、超薄真丝缎面裙，杜绝内衣痕显形。", "hero_img": "./06_纺织材质与功能特性/57_无缝一体连裤袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/57_无缝一体连裤袜_穿搭场景图.jpg"}, {"id": 58, "id_str": "58", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Cool-touch tights / Ice silk UV-cut tights / Cooling summer pantyhose", "zh_name": "接触凉感丝袜 / 冰丝防晒连裤袜 / 冷感透气丝袜", "primary_zh": "接触凉感丝袜", "aliases": ["冰丝防晒连裤袜", "冷感透气丝袜"], "spec": "矿物纳米微粒（玉石/冰云母）改性或异形截面导湿锦纶长丝复合高弹氨纶，微孔透气织造；UPF50+防紫外线，Q-max≥0.20", "visual": "5D-15D极轻薄通透，呈清澈水光润泽感或微雾清透感；如隐形防晒隔离霜，腿部轻盈透亮，无堆积厚重感。", "tactile": "触肤瞬间有明显吸热降温冰凉感，手感如流水般爽滑，出汗速干不粘身；高透气排热零闷热感，脚底透气排汗。", "styling": "盛夏轻熟风、清爽通勤风、夏日度假轻户外；高温酷暑防晒防蚊、写字楼冷气房防受凉、短裙短裤露腿穿搭。", "hero_img": "./06_纺织材质与功能特性/58_接触凉感丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/58_接触凉感丝袜_穿搭场景图.jpg"}, {"id": 59, "id_str": "59", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Thermal fleece-lined tights / Heat-generating tights / Sheer-look winter tights", "zh_name": "发热保暖连裤袜 / 加绒一体打底袜 / 假透肉光腿神器", "primary_zh": "发热保暖连裤袜", "aliases": ["加绒一体打底袜", "假透肉光腿神器"], "spec": "外层超细高弹锦纶网布，内层肉色致密德绒/微绒拉绒层（或吸湿发热功能性纤维），一体双层复合针织工艺", "visual": "完美呈现薄袜微透肉光学错视（假透肉），或纯正致密哑光厚袜感；高克重保暖同时维持紧致腿型，无臃肿棉裤感。", "tactile": "贴肤内层极其软绵温热，羊绒般丰厚蓄热触感；外层滑爽抗静电防粘裙摆；包裹力强，具中轻度收拢束腿感。", "styling": "深秋冬日名媛风、日韩露腿感穿搭、毛呢大衣皮草搭配；0℃及低温严寒天气下的户外出行、约会及派对穿搭。", "hero_img": "./06_纺织材质与功能特性/59_发热加绒袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/59_发热加绒袜_穿搭场景图.jpg"}, {"id": 60, "id_str": "60", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Shaper tights / Control top pantyhose / Body-sculpting tights", "zh_name": "收腹提臀塑形连裤袜 / 强效塑体美形丝袜", "primary_zh": "收腹提臀塑形连裤袜", "aliases": ["强效塑体美形丝袜"], "spec": "锦纶长丝复合高比例强力氨纶(18%-30%)，人体工学分区织造：腰腹双层蜂窝加压收腹，臀下弧形立体织带托高臀峰", "visual": "腰腹平坦平整、臀线上提1.5-3cm，身形轮廓凹凸有致；腿部呈微透至半哑光经典通透质感(20D-40D)。", "tactile": "腰腹与臀部具有明确的物理加压与提拉紧束感(Firm control)，织造平整无硬骨架压痛；防滑落性能极好，安全感强。", "styling": "都市干练职场装（Power Dressing）、修身铅笔裙装、晚宴高雅修身风；搭配紧身包臀裙、针织裙及高腰西裤，消除小腹微凸。", "hero_img": "./06_纺织材质与功能特性/60_收腹提臀丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/60_收腹提臀丝袜_穿搭场景图.jpg"}, {"id": 61, "id_str": "61", "category_full": "纺织材质与功能特性 (Fabrics & Functions)", "category": "纺织材质与功能特性", "folder": "06_纺织材质与功能特性", "en_name": "Matte ultra-sheer bare-skin tights / 5D-8D 'Second skin' tights", "zh_name": "超薄全消光裸感丝袜 / 伪素肌粉底柔焦丝袜 (5D-8D)", "primary_zh": "超薄全消光裸感丝袜", "aliases": ["伪素肌粉底柔焦丝袜 (5D-8D)"], "spec": "100%全消光锦纶(Full-Dull Nylon 66添加二氧化钛)复合5D-10D超细氨纶，400-480高针数平针单向编织", "visual": "视觉隐形无感，呈现微雾柔焦粉底液妆效(Airbrush matte finish)；彻底杜绝化纤反光油光感，自然修饰腿部微瑕与毛孔。", "tactile": "宛若第二层肌肤(Barely-there)，轻盈透气至极，触感极度细腻滑爽；无丝毫束缚感与闷热压迫感。", "styling": "盛夏素肌感职场通勤、极简自然高级风、夏季新娘及高清摄影；严格要求正装穿袜但追求无痕裸感的高端职场场合。", "hero_img": "./06_纺织材质与功能特性/61_全消光裸感丝袜_商品主图.jpg", "lifestyle_img": "./06_纺织材质与功能特性/61_全消光裸感丝袜_穿搭场景图.jpg"}, {"id": 62, "id_str": "62", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Solid white opaque tights / Lolita jacquard tights", "zh_name": "纯白连裤袜 / 洛丽塔蕾丝印花丝袜 / 古典白丝", "primary_zh": "纯白连裤袜", "aliases": ["洛丽塔蕾丝印花丝袜", "古典白丝"], "spec": "维多利亚少女着装与洛可可白瓷美学；40D-120D 纯白高遮瑕，或贾卡浮雕提花与错视画(Trompe-l'œil)印花", "visual": "纯白高遮瑕打破自然肤色过渡，塑造古董陶瓷娃娃般的无瑕超现实二次元轮廓；提花款具立体浮雕与错视系带细节，强调幼态与精致感。", "tactile": "超细天鹅绒或锦氨微孔混纺，表面呈极低光泽粉雾哑光；触手如桃皮绒般温润柔滑，提花款具规整立体经纬纹理。", "styling": "Sweet/Classic Lolita、Otome-kei、ACG Cosplay、复古女仆风；洛丽塔茶会、动漫游戏展览、主题写真摄影沙龙。", "hero_img": "./07_亚文化与复古风格/62_纯白洛丽塔丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/62_纯白洛丽塔丝袜_穿搭场景图.jpg"}, {"id": 63, "id_str": "63", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Cuban heel stockings / Cuban heel fully-fashioned stockings", "zh_name": "古巴跟复古长筒袜 / 方块加固跟后缝线丝袜", "primary_zh": "古巴跟复古长筒袜", "aliases": ["方块加固跟后缝线丝袜"], "spec": "20世纪40年代二战军旅配给实用主义至50年代初 Pin-up 招贴女郎；得名于方形实心古巴鞋跟，双倍股纱密织加固", "visual": "后跟部位呈鲜明矩形方块深色加固块，与挺直后缝线无缝垂直贯通；建筑感强烈，视觉重心稳固，后跟踝线利落硬朗，美式复古张力拉满。", "tactile": "传统款为100%无弹老尼龙(Nylon 6,6)，蜡纸般挺括干爽，摩擦有标志性沙沙声；加固跟部双倍密织厚实微硬。", "styling": "1940s-1950s Vintage Pin-Up、Rockabilly 摇滚乐风格、复古铅笔裙套装、军旅重演；复古集会、老爷车展、摇摆舞会。", "hero_img": "./07_亚文化与复古风格/63_古巴跟丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/63_古巴跟丝袜_穿搭场景图.jpg"}, {"id": 64, "id_str": "64", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "French heel & Keyhole heel stockings / Pyramid heel hosiery", "zh_name": "法式尖跟丝袜（埃菲尔铁塔跟） / 钥匙孔复古丝袜", "primary_zh": "法式尖跟丝袜（埃菲尔铁塔跟）", "aliases": ["钥匙孔复古丝袜"], "spec": "1950年代巴黎 Dior New Look 与细高跟鞋共生；钥匙孔源于平织罗口收针环与后跟镂空负空间工艺，15D极薄多孔锦纶", "visual": "法式尖跟呈倒V字形尖锐金字塔向上延伸，钥匙孔跟具水滴状镂空负空间；锋利拉长跟腱线条，极具黑色电影蛇蝎美人(Femme Fatale)冷艳张力。", "tactile": "15D极薄多孔超细锦纶，晶莹剔透的水晶玻璃透明度；袜身冰凉滑脱，尖跟密织边缘清晰，钥匙孔镂空边缘平整无毛刺。", "styling": "1950s Dior New Look 伞裙、黑色电影名伶风、法式轻奢、高端私密闺房；名流晚宴、歌剧院红毯、鸡尾酒沙龙、艺术人像摄影。", "hero_img": "./07_亚文化与复古风格/64_法式尖跟丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/64_法式尖跟丝袜_穿搭场景图.jpg"}, {"id": 65, "id_str": "65", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Fully-fashioned stockings (FFS) / Nylon RHT stockings", "zh_name": "全成形平织老尼龙吊带袜 / RHT加固真缝线丝袜", "primary_zh": "全成形平织老尼龙吊带袜", "aliases": ["RHT加固真缝线丝袜"], "spec": "传统 Reading 平织机平板织造；按腿部曲线退针成形留有减针针眼(Fashion Marks)，手工缝合后缝线；需吊袜带固定", "visual": "蝉翼级纯净水晶透度；小腿两侧减针雀斑点与凸起手缝背缝；因无氨纶在脚踝屈伸时产生自然松弛横向微褶皱(Bagging)，复古考究感极高。", "tactile": "100%无氨纶原始尼龙，挺括纸感、微硬干燥，无现代丝袜的橡胶收缩紧绷感；贴肤冰凉轻盈，后缝线具立体圆凸绳索触感。", "styling": "真实历史年代考据重演、古董蕾丝内衣收藏、纯正黄金年代好莱坞名媛；年代影视剧拍摄、古董沙龙、私人高端艺术摄影。", "hero_img": "./07_亚文化与复古风格/65_全成型老尼龙丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/65_全成型老尼龙丝袜_穿搭场景图.jpg"}, {"id": 66, "id_str": "66", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Balletcore ribbon tights / Ballerina bow & cross-tie tights", "zh_name": "芭蕾风系带丝袜 / 芭蕾美学蝴蝶结连裤袜", "primary_zh": "芭蕾风系带丝袜", "aliases": ["芭蕾美学蝴蝶结连裤袜"], "spec": "古典芭蕾练功房足尖鞋绑带传统，Miu Miu 与 Coquette 美学引领；半透粉白底袜结合缠绕真丝/涤纶高光缎带与立体蝴蝶结", "visual": "半透粉白或浅肉粉底色；脚踝及小腿交叉缠绕X型缎带并点缀立体蝴蝶结，视觉多层环绕，极富轻盈浪漫呼吸感与芭蕾舞者足踝轮廓感。", "tactile": "底袜为高弹微莫代尔锦氨超细打底裤，绵密亲肤；缎带滑润反光，立体蝴蝶结形成丰满触觉凸起，层素质感丰富细腻。", "styling": "Balletcore、Coquette、法式甜美少女风、郁金香蓬蓬裙；搭配芭蕾平底鞋（Ballerina Flats）、玛丽珍鞋日常出街、美术馆看展、剧场观演。", "hero_img": "./07_亚文化与复古风格/66_芭蕾风系带丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/66_芭蕾风系带丝袜_穿搭场景图.jpg"}, {"id": 67, "id_str": "67", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Grunge distressed ripped tights / Shredded laddering hose", "zh_name": "废土朋克破洞丝袜 / 破坏做旧抽丝撕裂连裤袜", "primary_zh": "废土朋克破洞丝袜", "aliases": ["破坏做旧抽丝撕裂连裤袜"], "spec": "融合1970s伦敦朋克反叛精神、1990s西雅图垃圾摇滚与后启示录废土美学（Mad Max/Rick Owens解构）；大面积横向抽丝与撕裂大洞", "visual": "布满横向抽丝（Laddering）、撕裂大洞与拉绒毛边；破坏感强烈，破洞中浅色皮肤与黑色残存织物形成剧烈冲突张力，具末世废土攻击性。", "tactile": "断线边缘起毛并带有卷边（Frayed Edges），抽丝区呈稀疏网絮，拉伸时受力不匀，手感斑驳粗粝，透凉通风。", "styling": "90s Grunge、London Punk、Post-Apocalyptic 废土风、赛博机能；地下摇滚节、Livehouse 演出、机车街拍，搭配重型马丁靴与做旧破洞牛仔。", "hero_img": "./07_亚文化与复古风格/67_废土朋克破洞丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/67_废土朋克破洞丝袜_穿搭场景图.jpg"}, {"id": 68, "id_str": "68", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Dopamine neon colored tights / 1960s Mod opaque tights", "zh_name": "多巴胺高饱和彩色连裤袜 / 荧光亮彩连裤袜 / 60年代摩德彩色袜", "primary_zh": "多巴胺高饱和彩色连裤袜", "aliases": ["荧光亮彩连裤袜", "60年代摩德彩色袜"], "spec": "1960s Swinging London 摩德(Mod)文化超短裙革命与波普艺术；荧光绿/亮黄/洋红/克莱因蓝等高饱和度纯色全遮盖（60D-120D）", "visual": "将双腿化为波普艺术色块剪影，视觉冲击力极高；模糊膝踝细节，从视觉上拉长下肢，与同色系或撞色（Color Blocking）大衣碰撞出先锋感。", "tactile": "高针数超细锦氨纤维，密实平整如天鹅绒哑光；四面超高弹包裹，紧致贴合无泛白杂色，触感柔滑平整。", "styling": "Dopamine Dressing（多巴胺穿搭）、60s Mod 超短裙造型、Color Blocking 撞色主义；时装周街拍、前卫派对、当代艺术展、波普时装写真。", "hero_img": "./07_亚文化与复古风格/68_多巴胺彩色丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/68_多巴胺彩色丝袜_穿搭场景图.jpg"}, {"id": 69, "id_str": "69", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Goth spiderweb tights / Dark wave occult cross jacquard tights", "zh_name": "哥特暗黑风蛛网连裤袜 / 暗波十字架蕾丝提花丝袜", "primary_zh": "哥特暗黑风蛛网连裤袜", "aliases": ["暗波十字架蕾丝提花丝袜"], "spec": "1980年代早期暗波（Dark Wave/Goth Rock）与维多利亚吸血鬼文化；拉舍尔蕾丝或贾卡大提花网眼织造", "visual": "蛛网纹理以膝盖或外侧放射展开，或暗黑十字架垂直排列中轴线；深黑提花浮于苍白肤色之上，犹如人体蕾丝刺青，具有强烈的冷艳仪式感与神秘学色彩。", "tactile": "提花线迹呈立体微凸棱线，孔隙部分透气轻盈，带有轻微阻尼网结触感，纤维干爽微有筋骨支撑力。", "styling": "Trad Goth、Dark Wave、Nu-Goth、维多利亚吸血鬼风、暗黑学院风；哥特音乐节（WGT）、暗黑俱乐部、万圣夜巡游、金属乐队演出。", "hero_img": "./07_亚文化与复古风格/69_暗黑哥特蛛网丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/69_暗黑哥特蛛网丝袜_穿搭场景图.jpg"}, {"id": 70, "id_str": "70", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Vintage clocked stockings / Clocks embroidered ankle hosiery", "zh_name": "复古箭羽钟纹刺绣丝袜 / 踝部暗花时钟长筒袜", "primary_zh": "复古箭羽钟纹刺绣丝袜", "aliases": ["踝部暗花时钟长筒袜"], "spec": "16-19世纪欧洲宫廷男女传统礼仪长袜；双丝光棉、桑蚕丝或超细真丝尼龙底料，踝部精梳丝线微针刺绣", "visual": "纯净透明袜身与踝骨两侧精致竖向对称刺绣（箭羽/麦穗/鸢尾花/时钟纹，长约10-15cm）；低调克制，步履间微露，极具古典贵族的雕刻美感。", "tactile": "底料触手如云；刺绣采用丝线密针，有细腻微凸浮雕感，贴肤平整无刺痒，透气亲肤性极佳。", "styling": "摄政王风（Regencycore）、爱德华时代 Gibson Girl、古典学院风、20年代名媛风；复古舞会沙龙、古典音乐会、英式下午茶、牛津鞋雅痞搭配。", "hero_img": "./07_亚文化与复古风格/70_复古钟纹刺绣丝袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/70_复古钟纹刺绣丝袜_穿搭场景图.jpg"}, {"id": 71, "id_str": "71", "category_full": "亚文化与复古风格 (Subculture & Vintage)", "category": "亚文化与复古风格", "folder": "07_亚文化与复古风格", "en_name": "Cabaret seamed fishnet stockings / Pin-up backseam fishnets", "zh_name": "复古歌舞秀后缝线渔网袜 / 海报女郎后接缝大腿袜", "primary_zh": "复古歌舞秀后缝线渔网袜", "aliases": ["海报女郎后接缝大腿袜"], "spec": "19世纪末巴黎红磨坊歌舞秀（Cabaret）与好莱坞滑稽歌舞（Burlesque）；菱形网眼与高密贯穿后缝线结合", "visual": "高对比菱形/蜂窝网眼包裹双腿；一条粗黑实心后缝线自足跟笔直贯穿至大腿后侧；极强舞台动感指引与肌肉紧绷感，性感张力拉满。", "tactile": "经编网眼结构，结点微凸紧致；后缝线为高密实凸起脊线；四向高弹，透气自如，与皮肤有鲜明网格摩擦感。", "styling": "Burlesque 滑稽舞演出、百老汇歌舞风、Pin-up 女郎装扮、Glam Rock 派对；滑稽舞剧场、复古爵士吧夜场、话剧舞台、摇滚聚会。", "hero_img": "./07_亚文化与复古风格/71_歌舞秀后缝线网袜_商品主图.jpg", "lifestyle_img": "./07_亚文化与复古风格/71_歌舞秀后缝线网袜_穿搭场景图.jpg"}];
+
+
+    // AI Prompt & Copy Functions
+    window.generateAIPrompt = function(item) {
+      const aliasesStr = item.aliases && item.aliases.length ? item.aliases.join('、') : '无';
+      const mainEn = item.en_name.split('/')[0].trim();
+      return `### 丝袜品类知识档案：${item.primary_zh} (${mainEn})
+- **编号**：#${item.id_str}
+- **所属大类**：${item.category_full}
+- **中文称呼与别名**：${item.zh_name}
+- **英文称呼规范**：${item.en_name}
+- **规格与工艺特征**：${item.spec}
+- **视觉效果描述**：${item.visual}
+- **触感与质感体验**：${item.tactile}
+- **推荐搭配风格与场合**：${item.styling}
+
+#### AI 绘画与设计提示词参考 (Prompt Keywords)：
+${mainEn.toLowerCase()}, ${item.primary_zh}, sheer tights, fashion lookbook photograph, full length legs, detailed textile weave, hyperrealistic, 8k resolution`;
+    };
+
+    window.copyToClipboard = function(text, successMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg || '✓ 复制成功！');
+        }).catch(() => {
+          fallbackCopy(text, successMsg);
+        });
+      } else {
+        fallbackCopy(text, successMsg);
+      }
+    };
+
+    function fallbackCopy(text, successMsg) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg || '✓ 复制成功！');
+      } catch (err) {
+        showToast('⚠️ 复制失败，请手动选择复制');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg) {
+      let toast = document.getElementById('toastNotice');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toastNotice';
+        toast.className = 'toast-notice';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span>📋</span> <span>${msg}</span>`;
+      toast.classList.add('show');
+      clearTimeout(window._toastTimeout);
+      window._toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    window.copyItemInfoForAI = function(event, id) {
+      if (event) event.stopPropagation();
+      const item = hosieryData.find(d => d.id === id);
+      if (!item) return;
+
+      const text = generateAIPrompt(item);
+      copyToClipboard(text, `已复制「${item.primary_zh}」完整档案，可直接发送给 AI！`);
+
+      if (event && event.currentTarget) {
+        const btn = event.currentTarget;
+        const origHtml = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> <span>已复制</span>';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = origHtml;
+          btn.classList.remove('copied');
+        }, 1600);
+      }
+    };
 
     let currentFilterCat = 'all';
     let currentSearchTerm = '';
@@ -1204,8 +1471,11 @@
               </div>
 
               <div class="card-footer">
+                <button class="btn-copy-ai" onclick="copyItemInfoForAI(event, ${item.id})" title="复制该款式的完整详情给 AI">
+                  <span>📋</span> <span>复制给 AI</span>
+                </button>
                 <button class="btn-detail" onclick="openModalById(${item.id})">
-                  <span>查看全屏大图与详尽档案</span> <span>→</span>
+                  <span>详尽档案</span> <span>→</span>
                 </button>
               </div>
             </div>
@@ -1303,6 +1573,11 @@
       modalVisual.textContent = item.visual;
       modalTactile.textContent = item.tactile;
       modalStyling.textContent = item.styling;
+
+      const modalCopyBtn = document.getElementById('modalCopyBtn');
+      if (modalCopyBtn) {
+        modalCopyBtn.onclick = (e) => copyItemInfoForAI(e, item.id);
+      }
 
       modalThumbHero.src = item.hero_img;
       modalThumbLifestyle.src = item.lifestyle_img;
